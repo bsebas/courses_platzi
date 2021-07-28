@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/stylesFiguras.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Figuras Geométricas</title>
+</head>
+
+<body>
+    <header class="headerPage">
+        <h1 class="titlePage">Figuras geométricas</h1>
+    </header>
+    <main class="mainPage">
+        <nav class="navListOption">
+            <div class="containerNavList">
+                <ul class="menu">
+                    <li class="itemNavList itemCuadrado">Cuadrado</li>
+                    <li class="itemNavList itemTriangulo">Triangulo</li>
+                    <li class="itemNavList itemCirculo">Circulo</li>
+                </ul>
+            </div>
+        </nav>
+        <div class="containerMainPage">
+            <section class="cuadrado none">
+                <div class="containerFigura">
+                    <header class="headerCuadrado">
+                        <h2 class="titleCuadrado">Calcula el area y perimetro de un cuadrado</h2>
+                    </header>
+                    <form class="formCuadrado">
+                        <div class="descriptionOption">
+                            <label for="inputCuadrado">Tamaño del los lados de tu cuadrado</label>
+                        </div>
+                        <div class="containerInputCuadrado">
+                            <input type="number" class="inputCuadrado" id="inputCuadrado">
+                        </div>
+                        <div class="buttonsCuadrado">
+                            <input type="button" id="perimetroCuadrado" value="Perimetro">
+                            <input type="button" id="areaCuadrado" value="Area">
+                        </div>
+                    </form>
+                    <div class="resultCuadrado"></div>
+                </div>
+            </section>
+            <section class="circulo none">
+                <div class="containerFigura">
+                    <header class="headerCirculo">
+                        <h2 class="titleCirculo">Calcula el area y perimetro de un circulo</h2>
+                    </header>
+                    <form class="formCirculo">
+                        <div class="descriptionOption">
+                            <label for="inputCirculo">Escribe el radio del circulo</label>
+                        </div>
+                        <div class="containerInputCirculo">
+                            <input type="number" class="inputCirculo" id="inputCirculo">
+                        </div>
+                        <div class="buttonsCirculo">
+                            <input type="button" id="perimetroCirculo" value="Perimetro">
+                            <input type="button" id="areaCirculo" value="Area">
+                        </div>
+                    </form>
+                    <div class="resultCirculo"></div>
+                </div>
+            </section>
+            <section class="triangulo">
+                <div class="containerFigura">
+                    <header class="headerTriangulo">
+                        <h2 class="titleTriangulo">Calcula el area y perimetro de un triangulo</h2>
+                    </header>
+                    <form class="formTriangulo">
+                        <div class="descriptionOption">
+                            <p>Escribe en los inputs los lados y la base</p>
+                        </div>
+                        <div class="containerInputsTriangulo">
+                            <div class="ladoOneTriangulo">
+                                <div class="descriptionOption">
+                                    <label for="inputLado1Triangulo">Lado 1</label>
+                                </div>
+                                <div class="inputOptionLadoOne">
+                                    <input type="number" class="inputTriangulo" id="inputLado1Triangulo">
+                                </div>
+                            </div>
+                            <div class="ladoTwoTriangulo">
+                                <div class="descriptionOption">
+                                    <label for="inputLado2Triangulo">Lado 2</label>
+                                </div>
+                                <div class="inputOptionLadoTwo">
+                                    <input type="number" class="inputTriangulo" id="inputLado2Triangulo">
+                                </div>
+                            </div>
+                            <div class="baseTriangulo">
+                                <div class="descriptionOption">
+                                    <label for="inputBaseTriangulo">Base triangulo</label>
+                                </div>
+                                <div class="inputOptionLadoThree">
+                                    <input type="number" class="inputTriangulo" id="inputBaseTriangulo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="buttonsTriangulo">
+                            <input type="button" id="perimetroTriangulo" value="Perimetro">
+                            <input type="button" id="areaTriangulo" value="Area">
+                        </div>
+                    </form>
+                    <div class="resultTriangle"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="scripts/figuras.js "></script>
+</body>
+
+</html>
