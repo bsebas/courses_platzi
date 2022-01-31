@@ -107,3 +107,8 @@ dist
 # Config VSCODE
 
 *.code-workspace
+
+# Database
+
+database
+database/*
