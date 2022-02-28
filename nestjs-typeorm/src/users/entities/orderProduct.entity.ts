@@ -4,23 +4,23 @@ import {
   CreateDateColumn,
   Entity,
   ManyToOne,
-  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Customer } from './customer.entity';
-import { OrderProduct } from './orderProduct.entity';
+import { Order } from './order.entity';
 
 @Entity()
-export class Order {
+export class OrderProduct {
   @PrimaryGeneratedColumn()
   id: number;
-  @ManyToOne(() => Customer, (customer) => customer.orders)
-  customer: Customer;
-  @OneToMany(() => OrderProduct, (order) => order.order)
-  items: OrderProduct[];
+  @Column({ type: 'int' })
+  quantity: number;
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;
   @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
+  @ManyToOne(() => Product)
+  product: Product;
+  @ManyToOne(() => Order, (order) => order.items)
+  order: Order;
 }
