@@ -1,4 +1,5 @@
-import { Product } from 'src/products/entities/product.entity';
+import { Exclude } from 'class-transformer';
+import { Products } from 'src/products/entities/product.entity';
 import {
   Column,
   CreateDateColumn,
@@ -15,12 +16,13 @@ export class OrderProduct {
   id: number;
   @Column({ type: 'int' })
   quantity: number;
+  @Exclude()
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;
   @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
-  @ManyToOne(() => Product)
-  product: Product;
+  @ManyToOne(() => Products)
+  product: Products;
   @ManyToOne(() => Order, (order) => order.items)
   order: Order;
 }

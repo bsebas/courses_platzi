@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 
 import { Order } from './../entities/order.entity';
 import { OrderProduct } from './../entities/orderProduct.entity';
-import { Product } from './../../products/entities/product.entity';
+import { Products } from './../../products/entities/product.entity';
 import { CreateOrderItemDto, UpdateOrderDto } from './../dtos/order-item.dto';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class OrdersItemsService {
   constructor(
     @InjectRepository(Order) private orderRepo: Repository<Order>,
     @InjectRepository(OrderProduct) private itemRepo: Repository<OrderProduct>,
-    @InjectRepository(Product) private productRepo: Repository<Product>,
+    @InjectRepository(Products) private productRepo: Repository<Products>,
   ) {}
 
   async create(data: CreateOrderItemDto) {

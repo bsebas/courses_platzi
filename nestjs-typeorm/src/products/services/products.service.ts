@@ -4,10 +4,14 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Between, FindConditions, Repository } from 'typeorm';
 
-import { Product } from './../entities/product.entity';
-import { CreateProductDto, UpdateProductDto } from '../dtos/products.dto';
+import { Products } from './../entities/product.entity';
+import {
+  CreateProductDto,
+  FiltreProductDto,
+  UpdateProductDto,
+} from '../dtos/products.dto';
 import { BrandsService } from './brands.service';
 import { Category } from '../entities/category.entity';
 import { Brand } from '../entities/brand.entity';
@@ -15,12 +19,27 @@ import { Brand } from '../entities/brand.entity';
 @Injectable()
 export class ProductsService {
   constructor(
-    @InjectRepository(Product) private productsRepo: Repository<Product>,
+    @InjectRepository(Products) private productsRepo: Repository<Products>,
     @InjectRepository(Category) private categoryRepo: Repository<Category>,
     @InjectRepository(Brand) private brandRepo: Repository<Brand>,
     private brandService: BrandsService,
   ) {}
-  async findAll() {
+  async findAll(params?: FiltreProductDto) {
+    if (params) {
+      const where: FindConditions<Products> = {};
+      const { limit, offset, maxPrice, minPrice } = params;
+      console.log({ minPrice, maxPrice });
+
+      if (minPrice && maxPrice) {
+        where.price = Between(minPrice, maxPrice);
+      }
+      return await this.productsRepo.find({
+        relations: ['brand'],
+        where: where,
+        take: limit,
+        skip: offset,
+      });
+    }
     return await this.productsRepo.find({
       relations: ['brand'],
     });
@@ -37,7 +56,7 @@ export class ProductsService {
   }
 
   async create(data: CreateProductDto) {
-    // const newProduct = new Product();
+    // const newProduct = new Products();
     // newProduct.image = data.image;
     // newProduct.description = data.description;
     // newProduct.name = data.name;

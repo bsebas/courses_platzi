@@ -6,7 +6,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Product } from './product.entity';
+import { Products } from './product.entity';
 @Entity()
 export class Brand {
   @PrimaryGeneratedColumn()
@@ -19,6 +19,6 @@ export class Brand {
   createdAt: Date;
   @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
-  @OneToMany(() => Product, (product) => product.brand)
-  products: Product[];
+  @OneToMany(() => Products, (product) => product.brand)
+  products: Products[];
 }
