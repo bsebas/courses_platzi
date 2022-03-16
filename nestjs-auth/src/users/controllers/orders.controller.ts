@@ -7,10 +7,13 @@ import {
   Put,
   Delete,
   ParseIntPipe,
+  UseGuards,
 } from '@nestjs/common';
 
 import { OrdersService } from './../services/orders.service';
 import { CreateOrderDto, UpdateOrderDto } from './../dtos/order.dto';
+import { AuthGuard } from '@nestjs/passport';
+@UseGuards(AuthGuard('jwt'))
 @Controller('orders')
 export class OrdersController {
   constructor(private orderService: OrdersService) {}

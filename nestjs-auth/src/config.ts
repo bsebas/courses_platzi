@@ -9,5 +9,6 @@ export default registerAs('config', () => {
       dbPort: parseInt(process.env.POSTGRES_PORT, 10),
       dbHOST: process.env.POSTGRES_HOST,
     },
+    jwtSecret: process.env.JWT_SECRET,
   };
 });
